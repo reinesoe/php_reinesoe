@@ -266,61 +266,6 @@ if ($_POST) {
 
 <body>
     <div class="container">
-        <h1>SOAL 3: Pencarian Data Person & Hobi</h1>
-
-        <div class="info-text">
-            <strong>Database:</strong> testdb<br>
-            <strong>Struktur:</strong> Tabel hobi memiliki relasi dengan tabel person dimana field "id" pada tabel person sama dengan field "person_id" pada tabel "hobi".<br>
-            Jadi satu orang pada tabel person bisa memiliki beberapa hobi.<br>
-            <strong>Tugas:</strong> Buat file import.sql yang berisi sql struktur database testdb tersebut
-        </div>
-
-        <div class="sample-data">
-            <strong>TUGAS:</strong><br>
-            Dengan data yang sudah ada:<br>
-            Buat 1 page untuk listing data2 di table "person" berikut hobinya masing-masing yg barada di tabel "hobi", misal:
-            <table style="border-collapse: collapse; margin-top: 10px;">
-                <tr style="border: 1px solid #333;">
-                    <th style="border: 1px solid #333; padding: 8px; background-color: #f0f0f0;">Nama</th>
-                    <th style="border: 1px solid #333; padding: 8px; background-color: #f0f0f0;">Alamat</th>
-                    <th style="border: 1px solid #333; padding: 8px; background-color: #f0f0f0;">Hobi</th>
-                </tr>
-                <tr style="border: 1px solid #333;">
-                    <td style="border: 1px solid #333; padding: 8px;">Sentot</td>
-                    <td style="border: 1px solid #333; padding: 8px;">Aaa 11</td>
-                    <td style="border: 1px solid #333; padding: 8px;">Futsal</td>
-                </tr>
-                <tr style="border: 1px solid #333;">
-                    <td style="border: 1px solid #333; padding: 8px;">Anna</td>
-                    <td style="border: 1px solid #333; padding: 8px;">Bbb 21</td>
-                    <td style="border: 1px solid #333; padding: 8px;">Basket</td>
-                </tr>
-            </table>
-        </div>
-
-        <p><strong>Dibawah tampilan tsb buat fasilitas form "search" nama/alamat/hobi sbb:</strong></p>
-        <p><em>Catatan: Pencarian hobi akan mencari berdasarkan hobi yang dimiliki oleh person tersebut.</em></p>
-
-        <div class="search-form">
-            <form method="POST" action="">
-                <div class="form-row">
-                    <label for="nama">Nama :</label>
-                    <input type="text" id="nama" name="nama" value="<?php echo htmlspecialchars($_POST['nama'] ?? ''); ?>">
-                </div>
-                <div class="form-row">
-                    <label for="alamat">Alamat :</label>
-                    <input type="text" id="alamat" name="alamat" value="<?php echo htmlspecialchars($_POST['alamat'] ?? ''); ?>">
-                </div>
-                <div class="form-row">
-                    <label for="hobi">Hobi :</label>
-                    <input type="text" id="hobi" name="hobi" value="<?php echo htmlspecialchars($_POST['hobi'] ?? ''); ?>">
-                </div>
-                <input type="submit" value="SEARCH" class="search-btn">
-            </form>
-        </div>
-
-        <p><strong>Ditekan tombol SEARCH, maka list tabel diatas akan berisi hasil pencarian tsb.</strong></p>
-
         <?php if ($search_performed): ?>
             <h3>Hasil Pencarian:</h3>
             <?php if (count($search_results) > 0): ?>
@@ -384,6 +329,27 @@ if ($_POST) {
             </table>
             <p><em>Menampilkan 10 data pertama. Gunakan form pencarian untuk mencari data spesifik.</em></p>
         <?php endif; ?>
+        
+        <div class="search-form">
+            <form method="POST" action="">
+                <div class="form-row">
+                    <label for="nama">Nama :</label>
+                    <input type="text" id="nama" name="nama" value="<?php echo htmlspecialchars($_POST['nama'] ?? ''); ?>">
+                </div>
+                <div class="form-row">
+                    <label for="alamat">Alamat :</label>
+                    <input type="text" id="alamat" name="alamat" value="<?php echo htmlspecialchars($_POST['alamat'] ?? ''); ?>">
+                </div>
+                <div class="form-row">
+                    <label for="hobi">Hobi :</label>
+                    <input type="text" id="hobi" name="hobi" value="<?php echo htmlspecialchars($_POST['hobi'] ?? ''); ?>">
+                </div>
+                <input type="submit" value="SEARCH" class="search-btn">
+            </form>
+        </div>
+
+
+        
     </div>
 </body>
 </html>
